@@ -1,5 +1,7 @@
+import API_KEY from './apiKey.json' with { type: 'json' };
+
 async function getWeather() {
-    const apiKey = "be43e687b8bfd8e1a3082f7de1422e8d"; // Replace with your OpenWeatherMap API key
+    const apiKey = API_KEY.WEATHER_API_KEY; // Replace with your OpenWeatherMap API key
     const city = document.getElementById("cityInput").value;
     
     if (!city) {
@@ -26,3 +28,5 @@ async function getWeather() {
         document.getElementById("weatherResult").innerHTML = `<p style="color:red;">${error.message}</p>`;
     }
 }
+
+document.getElementById("getWeather").addEventListener("click", getWeather);
